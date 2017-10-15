@@ -1,0 +1,31 @@
+1.  
+  347 (base 10) = 533 (base 8)
+  2755 (base 10) = AC3 (base 16)
+  20 (base 10) = 10100(base 2)
+
+2.
+  1000101 (base 2) = 69 (base 10)
+  357 (base 8) = 239 (base 10)
+  C7A (base 16) = 3194 (base 10)
+
+3.
+a)  FA + 23 = 11D (addition in base 16)
+
+b)  1101 0010 + 1110 1101 = 1101 1111 (addition in base 2)
+
+c)  1176 - 723 = 253 (substraction in base 8)
+
+4.
+a) 10101010, 110010 (base 2) = 252, 62 (base 8) determined by using the bit grouping method; 3 for base 8
+  
+   10101010, 110010 (base 2) = AA, C8 (base 16) determined by using the bit grouping method; 4 for base 16
+
+b) 1100010, 11101 (base 2) = 142, 72 (base 8)
+
+   1100010, 11101 (base 2) = 62, E8 (base 16)
+
+5. 175.1285 (base 10) = 2233.0200321 (base 4)
+
+6. Bubble Sort
+
+	

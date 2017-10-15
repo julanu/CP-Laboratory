@@ -1,0 +1,25 @@
+1.	The Harvard Architecture:
+  The Harvard architecture is a computer architecture with physically separate storage and signal pathways for
+instructions and data so it is possible to access program memory and data memory simultaneously.
+  These early machines had data storage entirely contained within the central processing unit, and provided no
+access to the instruction storage as data. Programs needed to be loaded by an operator of the machine because the
+processor could not initialize itself.
+  A characteristic of the Harvard Architecture is that it has physically separate signals and storage for code and data memory. 
+
+     Advantages:
+ -By having two memories it allows parallel access to data and instructions.
+ -The instructions and the data are accessed in the same way resulting in a faster execution time.
+ -It is possible to make extremely fast memory, but this is only practical for small amounts of memory because
+of the expensive production cost.
+
+     Disadvantages:
+ -Not widely used.
+ -More difficult and expensive to build as it requires more pins.
+
+
+
+
+2. C:\Users\jula\Documents\Docs\c-refcard.pdf
+
+
+3. https://www.cprogramming.com/tutorial.html
