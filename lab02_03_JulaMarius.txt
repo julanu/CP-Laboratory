@@ -1,0 +1,211 @@
+1.  
+  347 (base 10) = 533 (base 8)
+  2755 (base 10) = AC3 (base 16)
+  20 (base 10) = 10100(base 2)
+
+2.
+  1000101 (base 2) = 69 (base 10)
+  357 (base 8) = 239 (base 10)
+  C7A (base 16) = 3194 (base 10)
+
+3.
+a)  FA + 23 = 11D (addition in base 16)
+
+b)  1101 0010 + 1110 1101 = 1101 1111 (addition in base 2)
+
+c)  1176 - 723 = 253 (substraction in base 8)
+
+4.
+a) 10101010, 110010 (base 2) = 252, 62 (base 8) determined by using the bit grouping method; 3 for base 8
+  
+   10101010, 110010 (base 2) = AA, C8 (base 16) determined by using the bit grouping method; 4 for base 16
+
+b) 1100010, 11101 (base 2) = 142, 72 (base 8)
+
+   1100010, 11101 (base 2) = 62, E8 (base 16)
+
+5. 175.1285 (base 10) = 2233.0200321 (base 4)
+
+
+6. 	Bubble Sort
+
+//considering v[] an array of the elements to be sorted
+//n - size of the array
+
+function bubble_sort(v[], n)
+{
+  for index = 0 to n - 1
+    for index2 = 0 to n - 1
+      {
+	if (v[index] > v[index2])
+	  {
+	  aux = v[index];
+	  v[index] = v[index2];
+	  v[index2] = aux;
+	  } //end if
+
+	} //end of for loop
+
+} //end of function
+
+	Quick Sort
+
+// the sorting function
+// low,high - starting and ending index
+// A[] to be considered the array that must be sorted
+
+function quicksort(A[], low, high)
+{
+    if(low > high)
+        return ;
+
+    if (low < high)
+      {
+        pivot = partition(A, low, high);
+        quicksort(A, low, pivot – 1);
+        quicksort(A, pivot + 1, hi);
+      }
+
+}
+
+//the algorithm for partitioning the array
+
+function partition(A[], low, high)
+{
+
+    pivot = A[high];
+    index = low - 1;  // index of smaller element 
+
+    for index2 = low to high - 1 
+      {
+        if (A[index2] < pivot)
+	  {
+            i = i + 1;
+
+	    aux = A[index];
+	    A[index] = A[index2]; //we swap A[index] with A[index2]
+	    A[index2] = aux;
+
+	   } //end if
+      } //end for
+
+    return (i + 1);
+
+} //end function
+
+
+	Counting Sort
+
+//note that this algorithm uses a lot of memory
+// count - counting array
+// output - array to temporary store the sorted array
+
+function countSort(A[], n)
+{
+	
+
+    //we store the count of each integer
+    for ind = 0 to n -1
+        ++count[A[ind]];
+ 
+    // we now change count[i] so that the new count[i] contains the actual
+    // position of the int in the array
+
+    for ind = 0 to n - 1
+        count[ind] += count[ind - 1];
+ 
+    // we now compute the output array in such a way that the
+    // array will come up sorted
+    for ind = 0 to n - 1
+    {
+        output[count[arr[ind]] - 1] = arr[ind];
+        --count[arr[ind]];
+    }
+ 
+    // we copy the output array to the initial array A[]
+    // so that it contains the sorted elements
+    for ind = 1 to n - 1
+        arr[ind] = output[ind];
+}
+
+
+7.
+//function to compute and return the greatest common divisor of two numbers
+
+int greatestCommonDivisor(int a, int b)
+{
+
+//if one of the two numbers is equal to 0 then we exit the function as the values are not valid
+    if(a == 0 || b == 0)
+	return ;
+//if one of the values is equal to 1 then we output 1 as the greatest common divisor can't be greater than one
+//in this case
+    if(a == 1 || b == 1)
+	return 1;
+   
+//if the cases above are ignored we start to compute the GCD
+    while(a != b)
+	if(a > b)
+	  a = a - b;
+	else
+	  b = b - a;
+
+  return a;
+}
+
+
+8.
+
+/* 
+  algorithm to decompose a given number N in prime factors
+*/
+
+ input a //the number we will decompose in prime factors
+   
+  d = 2; //the value with which we start testing the number
+
+   while (a > 1){
+	p = 0;
+	while(a % d == 0)
+	  { 
+		p = p + 1;
+		a = a / d;
+	   }//end while
+  	if(p == 0)
+	 output d, " at the power ", p;
+   d = d + 1;
+
+}//end while
+//end algorithm
+
+/*
+     erathosthenes sieve algorithm to determine all the prime numbers up to a given N value
+     this algorithm can also be found on my github account
+*/
+
+void sieve(int n, int primes[])
+{
+    int i, j; //indexes
+    for (i = 0; i < n; i++)
+        primes[i] = 1; // we initialize the sieve list to 1's (True), considering that all the numbers are prime
+
+    primes[0] = 0;
+    primes[1] = 0; // Set the first two numbers (position 0 and 1) to 0 (False)
+
+    for (i = 2; i < sqrt(n); i++) // loop through all the numbers up to the sqrt(n)
+        for (j = 2 * i;j < n;j += i) // mark off each factor of i by setting it to 0 (False)
+            primes[j] = 0;
+}
+
+//now we just have to output the array by checking if the value of the primes[] array is equal to 1
+//then we output the value of the index
+
+void print_vector(int n, int primes[])
+{
+
+  int i;
+  for(i = 0; i < n; i++)
+	if(primes[i] == 1)
+	  printf("%d ", i);
+
+}//end function
