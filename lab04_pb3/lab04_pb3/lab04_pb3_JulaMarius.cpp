@@ -1,29 +1,32 @@
-//ex 3 lab 4
+/* Laboratory 4 Problem 3
+Author: Jula Marius
+Date: 29/10/17 */
 
 #define _CRT_SECURE_NO_WARNINGS
 
-
-//libraries
 #include <iostream>
 #include <conio.h>
 
-#define value 2   //we defined a value
+#define value DIM   /*define a value*/
 
 using namespace std;
 
-void print_value(int);    //prototype
+/*prototypes*/
+void print_value(int);   
 
-
-//main function
+/*main function*/
 void main()
 {
+	int DIM;
+	scanf("%d", &DIM);
+
 	print_value(value);
 
 	_getch();
 
 }
 
-//function to print a given value
+/*function to print a given parameter*/
 void print_value(int a)
 {
 	cout << "The value is " << a;

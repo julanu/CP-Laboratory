@@ -14,25 +14,15 @@ using namespace std;
 #define val 6
 #define C 'a'
 #define R 2.2
-#define DIM 10
+#define S "Hello World"
 
 void main()
 {
-	int arr[DIM], i;
-	/* initializing the array with some values */
-	for (i = 0; i < DIM; i++)
-		arr[i] = i;
-
-	cout << "Printing the array" << endl;
-	for (i = 0; i < DIM; i++)
-		cout << arr[i] << " ";
-      cout << endl;
-
-
-	cout << "Int value  " << val << endl;
-	cout << "Char value  " << C << endl;
-	cout << "Real value  " << R << endl;
-
+	/*We now start to display the different values using the cout and the << operator */
+	cout << "Int value:  " << val << endl;
+	cout << "Char value : " << C << endl;
+	cout << "Real value:  " << R << endl;
+	cout << "Array of characters: " << S << endl;
 
 	_getch();
 }

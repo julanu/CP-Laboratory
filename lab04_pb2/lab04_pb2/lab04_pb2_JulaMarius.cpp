@@ -1,15 +1,18 @@
-//tema lab 4
-//exercitiu 2
-
+/* Laboratory 4 Problem 2
+Author: Jula Marius
+Date: 29/10/2017  */
 #define _CRT_SECURE_NO_WARNINGS
+
 
 #include <stdio.h>
 #include <conio.h>
 #include <cmath>
 
+/*prototypes*/
 float geometric_av(int, int);
 int input();
 
+/*main function to call out the other functions*/
 void main()
 {
 	int a, b;
@@ -19,11 +22,11 @@ void main()
 
 	printf("The geometric average is %.3f", geometric_av(a, b));
 
-
 	_getch();
 }
 
 
+/*function to read the data from the keyboard*/
 int input()
 {
 	int a;
@@ -33,11 +36,12 @@ int input()
 	return a;
 }
 
+/*function to compute the geometric average of 2 integer numbers*/
 float geometric_av(int a, int b)
 {
 	float g_av;
 
-	g_av = sqrt(a * b);
+	g_av = sqrt(a * b); /*usign the square root function from the cmath library*/
 
 	return g_av;
 

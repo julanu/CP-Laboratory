@@ -1,15 +1,17 @@
-//lab 4 ex 5
+/* Laboratory 4 Problem 5
+Author: Jula Marius
+Date: 2/11/2017 */
 
 #define _CRT_SECURE_NO_WARNINGS
 
-//libraries
 #include <stdio.h>
 #include <conio.h>
 
-//prototypes
+/* prototypes*/
 int input();
 float compute_sum(int, int, int, float, float, float);
 
+/*main function*/
 void main()
 {
 	int a, b, c;   //the 3 numbers with which we will compute the weighted sum
@@ -28,7 +30,7 @@ void main()
 	_getch();
 }
 
-//function to compute the weighted sum of 3 nums using the weights
+/*function to compute the weighted sum of 3 nums using the weights */
 float compute_sum(int a, int b, int c, float p1, float p2, float p3)
 {
 	float sum;
@@ -39,7 +41,7 @@ float compute_sum(int a, int b, int c, float p1, float p2, float p3)
 	return sum;
 }
 
-//function to read the input
+/* function to read the input from the keyboard*/
 int input()
 {
 	int a;
