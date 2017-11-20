@@ -1,5 +1,9 @@
 /* Laboratory 4 Problem 5
+
+Description: computing the weighted sum
+
 Author: Jula Marius
+
 Date: 2/11/2017 */
 
 #define _CRT_SECURE_NO_WARNINGS

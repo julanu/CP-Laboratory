@@ -1,5 +1,9 @@
 /* Laboratory 4 Problem 7
+
+Description: computing the sum 1/a + 1/b + 1/c
+
 Author: Jula Marius
+
 Date: 2/11/2017 */
 
 #define _CRT_SECURE_NO_WARNINGS

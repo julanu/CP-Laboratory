@@ -1,4 +1,5 @@
 /* Laboratory 4 Problem 2
+Description: geometric average of 2 integer numbers
 Author: Jula Marius
 Date: 29/10/2017  */
 #define _CRT_SECURE_NO_WARNINGS

@@ -1,6 +1,10 @@
 /* Laboratory 4 Problem 6
-	Author : Jula Marius
-	Date : 2/11/2017 */
+	
+Description: defining values and outputing them
+	
+Author : Jula Marius
+	
+Date : 2/11/2017 */
 
 
 #define _CRT_SECURE_NO_WARNINGS

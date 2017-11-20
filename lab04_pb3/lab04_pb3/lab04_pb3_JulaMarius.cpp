@@ -1,5 +1,8 @@
 /* Laboratory 4 Problem 3
+Description: displaying a defined value using cout and the << operator
+
 Author: Jula Marius
+
 Date: 29/10/17 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -18,6 +21,7 @@ void print_value(int);
 void main()
 {
 	int DIM;
+	printf("Enter a value: ");
 	scanf("%d", &DIM);
 
 	print_value(value);

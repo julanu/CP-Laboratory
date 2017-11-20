@@ -1,6 +1,10 @@
 /* Laboratory 4 Problem 4
-Author: Jula Marius	
+Description: display a character array using escape sequences
+
+Author: Jula Marius
+
 Date: 29/10/2017 */
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
