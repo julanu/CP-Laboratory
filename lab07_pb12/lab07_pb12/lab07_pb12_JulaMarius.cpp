@@ -11,6 +11,9 @@
 #include <stdio.h>
 #include <conio.h>
 
+/* prototypes */
+void compute(int);
+
 void main()
 {
 	int n;
@@ -18,16 +21,27 @@ void main()
 	printf("Please enter the value: ");
 	scanf("%d", &n);
 
+	compute(n);
 
-
+	_getch();
 }
 
-int compute(int n)
+void compute(int n)
 {
 	float sum, x;
-
+	int count; 
+	sum = 0.0; 
+	count = 0;
+	
+	/* we will continue to read a real number and count when a numbered is entered
+	   untill the sum is greater than the given N variable */
 	do {
-		scanf("")
-	}
+		printf("\nPlease enter a number: ");
+		scanf("%f", &x);
+		sum += x;
+		count += 1;
+	} while (n >= sum);
 
+	printf("\n The sum is equal to: %.2f", sum);
+	printf("\n %d number(s) have been introduced", count);
 }
