@@ -41,9 +41,12 @@ int input()
 	return val;
 }
 
+/* this function searches in the primes array for the first non-false value meaning that 
+   holds a prime value, so we display the value of the index and exit from the function */
 void detLastNum(int n, int primes[])
 {
 	int i;
+
 	for (i = n - 1; i > 0; i--)
 		if (primes[i] == 1)
 		{
@@ -51,24 +54,31 @@ void detLastNum(int n, int primes[])
 			return;
 		}
 }
+
+/* using the primes array we check for every non-false value from the array
+   because that value will hold at it's index a prime num */
 void detPrimeNums(int n, int primes[])
 {
 	int i;
+
 	for (i = 0; i < n; i++)
 		if (primes[i] == 1)
-			printf("%d\n", i); // this just prints out each value if it's Prime
+			printf("\t\t%d\n", i); /* this just prints out each value if it's Prime */
 }
 
+/* function to det. all the prime nums smaller than a given N value using the famous
+   Eratosthenes algorithm */
 void sieve(int n, int primes[])
 {
-	int i, j;
+	int i, j; /* indexes*/
+
 	for (i = 0; i < n; i++)
-		primes[i] = 1; // we initialize the sieve list to all 1's (True)
+		primes[i] = 1; /* we initialize the sieve list to all 1's (True) */
 
 	primes[0] = 0;
-	primes[1] = 0; // Set the first two numbers (0 and 1) to 0 (False)
+	primes[1] = 0; /* Set the first two numbers (0 and 1) to 0 (False) */
 
-	for (i = 2; i < sqrt(n); i++) // loop through all the numbers up to the sqrt(n)
-		for (j = 2 * i; j < n; j += i) // mark off each factor of i by setting it to 0 (False)
+	for (i = 2; i < sqrt(n); i++) /* loop through all the numbers up to the sqrt(n) */
+		for (j = 2 * i; j < n; j += i) /* mark off each factor of i by setting it to 0 (False) */
 			primes[j] = 0;
 }
