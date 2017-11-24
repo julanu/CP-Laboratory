@@ -11,6 +11,7 @@
 
 #define MAX 20
 
+/* prototypes */
 int detElem(int *, int);
 void readElems(int *, int);
 
@@ -39,12 +40,22 @@ void readElems(int arr[], int n)
 		scanf("%d", &arr[i]);
 	}
 }
-
+/* function to determine the smallest positive number from an array
+   we first search for the first positive element and then exit the for loop
+   then we continue the search */
 int detElem(int arr[], int n)
 {
 	int i, nr;
-	nr = arr[0];
-	for (i = 1; i < n; i++)
+
+	nr = 0;
+	for (i = 0; i < n; i++)
+	{
+		if (arr[i] > 0)
+			nr = arr[i];
+		break;
+	}
+
+	for (i = 0; i < n; i++)
 		if ((arr[i] < nr) && (arr[i] > 0))
 			nr = arr[i];
 
