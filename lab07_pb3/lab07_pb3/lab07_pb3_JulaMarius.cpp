@@ -15,8 +15,7 @@ void main()
 {
 	int n, a;
 
-	printf("\nPlease enter the value of 'a':");
-	scanf("%d", &a);
+	a = 3;
 
 	printf("\nPlease enter the value of 'n':");
 	scanf("%d", &n);

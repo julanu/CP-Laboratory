@@ -38,7 +38,7 @@ void main()
 	oddPositions(mat2, n, m);
 
 	printf("\nThe sum of all even nums in both matrices is: %d", detEvenSum(mat1, mat2, n, m));
-
+	printf("\nThe matrix resulted by adding both matrices is: \n");
 	sumMatrices(mat1, mat2, n, m);
 
 	_getch();
@@ -48,10 +48,10 @@ void readMatrix(int mat[][COLS], int n, int m)
 {
 	int i, j;
 	for (i = 0; i < n; i++)
-		for (i = 0; i < m; i++)
+		for(j = 0; j < m; j++)
 		{
 			printf("\nmat[%d][%d]=", i, j);
-			scanf("%d", &mat[i][[j]);
+			scanf("%d", &mat[i][j]);
 		}
 }
 /* function to display a matrix */
@@ -62,7 +62,7 @@ void displayMatrix(int mat[][COLS], int n, int m)
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < m; j++)
-			printf("%d ", mat[i][j]);
+			printf(" %d ", mat[i][j]);
 		printf("\n");
 	}
 }
@@ -75,7 +75,7 @@ void oddPositions(int mat[][COLS], int n, int m)
 
 	for (i = 0; i < n; i++)
 		for (j = 0; j < m; j++)
-			if (mat[i][j] % 2 == 0)
+			if (mat[i][j] % 2 == 1)
 				printf("(%d, %d) ", i, j);
 }
 
@@ -90,9 +90,9 @@ int detEvenSum(int mat1[][COLS], int mat2[][COLS], int n, int m)
 	for (i = 0; i < n; i++)
 		for (j = 0; j < m; j++)
 		{
-			if (mat1[i][j] % 2 == 1)
+			if (mat1[i][j] % 2 == 0)
 				sum += mat1[i][j];
-			if (mat2[i][j] % 2 == 1)
+			if (mat2[i][j] % 2 == 0)
 				sum += mat2[i][j];
 		}
 	return sum;
@@ -106,6 +106,6 @@ void sumMatrices(int mat1[][COLS], int mat2[][COLS], int n, int m)
 	for (i = 0; i < n; i++)
 		for (j = 0; j < m; j++)
 			mat1[i][j] += mat2[i][j];
-
+	printf("\n");
 	displayMatrix(mat1, n, m);
 }
