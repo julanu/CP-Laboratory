@@ -12,7 +12,6 @@
 /* prototypes */
 void printChar(char, int);
 
-
 void main()
 {
 	char c;

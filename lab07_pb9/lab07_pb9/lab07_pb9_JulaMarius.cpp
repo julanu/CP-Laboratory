@@ -43,7 +43,7 @@ void substractNums(int a, int b)
 	int count;
 	count = 0;
 
-	while (a > b)
+	while (a >= b)
 	{
 		count += 1;
 		a = a - b;

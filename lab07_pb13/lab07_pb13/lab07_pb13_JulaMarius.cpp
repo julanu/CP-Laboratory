@@ -25,6 +25,7 @@ void main()
 	_getch();
 }
 
+/* function to read the input from the keyboard*/
 int input()
 {
 	int x;

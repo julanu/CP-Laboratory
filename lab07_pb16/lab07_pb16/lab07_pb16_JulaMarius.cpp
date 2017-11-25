@@ -10,37 +10,56 @@
 #include <stdio.h>
 #include <conio.h>
 
-#define ESC 27
+#define ESCAPE 27
 
 void process();
 
-void main(void)
+/* everything was done in a single function so the main function looks really clean */
+void main()
 {
-	/* all the processing will happen in the function*/
 	process();
-
+	
 	_getch();
 }
-
+/* 
+   we start the function by reading in the variable c using the _getche(function that reads an 
+   character with echo), so we can see what character we have entered, we then check if the
+   character we entered is equal with ESCAPE(the code for our escape key) if it's not ESCAPE
+   then we add to the sum of odd numbers and count how many we have entered. by doing that we
+   will be able to read until we press the ESC key and display the av. val. of the odd nums entered
+   */
 void process()
 {
 	char c;
-	int x, sum, count;
+	int sum, count, x;
+	sum = 0;
+	count = 1; /* as we can't divide by 0 in case no number is entered */
 
-	sum = count = 0;
-
-	while (1)
+	do
 	{
-		c = getchar();
-		if (c == ESC) return;
-
-		printf("\n Enter number: ");
-		scanf("%d", &x);
-		if ((x > 0) && (x % 2 == 1))
+		printf("\nEnter the number: ");
+		c = _getche();
+		if (c == ESCAPE)
+			printf("DONE");
+		else
 		{
-			sum += x;
-			count += 1;
+			x = c - '0'; /* we substract '0' so we can obtain our value(for example 3 in ASCII is 51, but 51 - '0',
+							where('0' = 48) gives us our needed value, 3 */
+			if (x % 2 == 1)
+			{
+				sum += x;
+				count++;
+			}
 		}
+	} while (c != ESCAPE);
+
+	/* we will divide by count - 1 because we initialized the variable with
+	   1 in case no number is entered */
+	if (count == 1)
+		printf("\n\tNo numbers have been entered");
+	else
+	{
+		count -= 1; /* we decrease the number count by one so we can obtain a proper result */
+		printf("\nThe avg. val. of the odd pos. nums is: %.2f", (float)sum / count);
 	}
-	printf("\nThe average values is equal to: %.2f", (float)sum / count);
 }
