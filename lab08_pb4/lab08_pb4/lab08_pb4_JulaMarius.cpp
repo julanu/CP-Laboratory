@@ -14,7 +14,9 @@
 #define PASS "sevenSamurai"
 #define DIM 25
 
-
+/* after reading the password(the string of characters) we use 
+   the strcmp function which checks if two strings are equal, 
+   if so the function will return the value 0 */
 void main()
 {
 	char pass2[DIM];
@@ -25,17 +27,18 @@ void main()
 	do
 	{
 		printf("\nPlease enter the password: ");
-		gets_s(pass2);
+		gets_s(pass2); /* reading the password */
 		count++;
-		if (strcmp(pass2, PASS) == 1)
-		{
-			printf("The password has been entered % times", count);
-			_getch();
+		if (strcmp(pass2, PASS) == 0)
+		{	/* we display the password count - 1 times because we 
+			count also the time we enterred correctly the password*/
+			printf("The password has been entered %d time(s)", count - 1);
+			_getch(); 
 		}
 		else
-			printf("Please enter again the password");
+			printf("\nPlease enter the password correctly");
 
-	} while (strcmp(pass2, PASS) != 1);
+	} while (strcmp(pass2, PASS) != 0);
 
 	_getch();
 }
