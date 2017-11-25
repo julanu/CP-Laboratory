@@ -17,6 +17,8 @@ void detPrimeNums(int, int*);
 void detLastNum(int, int*);
 int input();
 
+/* spaced out the main function so the calling of the functions is more clear
+   and intelligible */
 void main()
 {
 	int primes[MAX], n;
@@ -24,13 +26,16 @@ void main()
 	n = input();
 
 	sieve(n, primes);
+
 	printf("All the prime nums: \n");
+
 	detPrimeNums(n, primes);
+
 	detLastNum(n, primes);
 
 	_getch();
 }
-
+/*function to read the input */
 int input()
 {
 	int val;
