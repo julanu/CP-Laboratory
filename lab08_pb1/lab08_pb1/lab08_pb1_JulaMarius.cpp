@@ -57,5 +57,6 @@ void meanVal(int arr[], int n)
 			sum_neg += arr[i];
 
 	printf("\nThe mean value of the pos. elems is: %.2f", sum / n);
+
 	printf("\nThe mean value of the neg. elems is: %.2f", sum_neg / n);
 }

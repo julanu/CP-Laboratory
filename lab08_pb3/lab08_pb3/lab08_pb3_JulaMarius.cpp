@@ -12,6 +12,7 @@
 
 #define DIM 10
 
+/* prototypes */
 void readElems(int *);
 void displaySortArray(int *);
 
@@ -37,6 +38,9 @@ void readElems(int arr[])
 	}
 }
 
+/* we sort the array increasingly using a simple sorthing algorithm with the
+   efficiency of O(n^2) that gets the job done, instead we could have used a
+   logarithmical sorthing algorithm such as Merge Sort*/
 void displaySortArray(int arr[])
 {
 	int i, j;

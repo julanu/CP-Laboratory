@@ -24,7 +24,7 @@ void main()
 
 	readElems(arr, n);
 
-	printf("\nThe num is: %d", detElem(arr, n));
+	printf("\nThe smallest pos. num. is: %d", detElem(arr, n));
 
 	_getch();
 }
