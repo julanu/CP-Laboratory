@@ -10,12 +10,26 @@
 #include <stdio.h>
 #include <conio.h>
 
+#define DIM 100
+
 void readArr(int *, int);
 float avgValue(int *, int);
+void smallThanAvg(int *, int);
 
 void main()
 {
+	int arr[DIM], n;
 
+	printf("\nGive the dimension of the array: ");
+	scanf("%d", &n);
+
+	readArr(arr, n);
+
+	printf("\nThe average value of the elements is: %.2f", avgValue(arr, n));
+
+	smallThanAvg(arr, n);
+
+	_getch();
 }
 
 /* function to read a one-dimensional array */
@@ -27,7 +41,7 @@ void readArr(int arr[], int n)
 
 	for (i = 0; i < n; i++)
 	{
-		printf("arr[%d]: ");
+		printf("arr[%d]: ", i);
 		scanf("%d", &arr[i]);
 	}
 }
@@ -41,10 +55,17 @@ float avgValue(int arr[], int n)
 	for (i = 0; i < n; i++)
 		sum += arr[i];
 
-	return (sum / n);
+	sum /= n;
+	return sum;
 }
 
 void smallThanAvgVal(int arr[], int n)
 {
-
+	int i;
+	float avg;
+	avg = avgValue(arr, n);
+    printf("\nThe elements smaller than the average are:\n");
+	for (i = 0; i < n; i++)
+		if (arr[i] > avg)
+			printf("%d ", arr[i]);
 }
