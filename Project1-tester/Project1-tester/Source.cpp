@@ -1,8 +1,9 @@
 /*
 Author:  Jula  Marius
-Date:  24/11/2017
-Description:  Read  an  array  then  display  its  elements,  ordered
-increasingly.
+Date:  3/12/2017
+Description:  Read  from  the  keyboard  the  elements  of  an  m  x  n  integer  matrix.
+If  the  matrix  is  square,  display  the  elements  from  the  secondary  diagonal.  If  not,  print  the  sum  of  all
+the  elements  from  a  certain  column,  c.
 */
 
 #define  _CRT_SECURE_NO_WARNINGS
@@ -10,52 +11,68 @@ increasingly.
 #include  <stdio.h>
 #include  <conio.h>
 
-#define  DIM  10
+#define  ROWS  25
+#define  COLS  25
 
-/*  prototypes  */
-void  readElems(int  *);
-void  displaySortArray(int  *);
+void  readMatrix(int *, int, int);
+int  sumColumn(int *, int, int);
+void  secondDiag(int *, int, int);
 
-void  main()
+void  main(void)
 {
-	int  arr[DIM];
+	int  tab[ROWS][COLS], n, m, col, *pt;
+	pt = &tab[0][0];
+	printf("\nPlease  enter  the  dimensions  of  the  matrix:  ");
+	scanf("%d%d", &n, &m);
 
-	readElems(arr);
+	readMatrix(pt, n, m);
 
-	displaySortArray(arr);
+	if (n != m)
+	{
+		printf("\nPlease  enter  the  column:  ");
+		scanf("%d", &col);
+		printf("\nThe  sum  of  the  elems  of  the  column  %d  is  %d", col, sumColumn(pt, n, col));
+	}
+	else
+		secondDiag(pt, n, m);
 
 	_getch();
 }
 
-void  readElems(int  arr[])
+/*  function  to  read  an  NxM  matrix*/
+void  readMatrix(int  *tab, int  n, int  m)
 {
-	int  i;
-	printf("\nGive  the  elements  of  the  array\n");
-	for (i = 0; i < DIM; i++)
-	{
-		printf("arr[%d]=", i);
-		scanf("%d", &arr[i]);
-	}
+	int  i, j, *pt;
+	pt = tab;
+	printf("\nPlease  enter  the  elements  of  the  matrix:\n");
+	for (i = 0; i < n; i++)
+		for (j = 0; j < m; j++)
+		{
+			printf("tab[%d][%d]:  ", i, j);
+			scanf("%d", (pt + i*n + j));
+		}
 }
 
-/*  we  sort  the  array  increasingly  using  a  simple  sorthing  algorithm  with  the
-efficiency  of  O(n^2)  that  gets  the  job  done,  instead  we  could  have  used  a
-logarithmical  sorthing  algorithm  such  as  Merge  Sort*/
-void  displaySortArray(int  arr[])
+/*  function  to  sum  all  the  elements  from  a  column  C*/
+int  sumColumn(int  *tab, int  n, int  c)
 {
-	int  i, j;
+	int  i, sum, *pt;
+	sum = 0;
+	pt = tab;
+	for (i = 0; i < n; i++)
+		sum += *(pt + i*n + c);
 
-	for (i = 0; i < DIM; i++)
-		for (j = 0; j < DIM; j++)
-			if (arr[i]  <  arr[j])
-			{
-				int  temp;
-				temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
-			}
+	return  sum;
+}
 
-	for (i = 0; i < DIM; i++)
-		printf("\t  %d", arr[i]);
+void  secondDiag(int  *tab, int  n, int  m)
+{
+	int  i, j, *pt;
+	pt = tab;
+	printf("\nThe  elements  from  the  second  diagonal  are:  \n");
 
+		for (j = 0; j < m; j++)
+		{
+			printf("%d  ", *(pt + j * m + (m - j - 1)));
+		}
 }
