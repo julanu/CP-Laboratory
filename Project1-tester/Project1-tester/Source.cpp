@@ -1,78 +1,71 @@
 /*
-Author:  Jula  Marius
-Date:  3/12/2017
-Description:  Read  from  the  keyboard  the  elements  of  an  m  x  n  integer  matrix.
-If  the  matrix  is  square,  display  the  elements  from  the  secondary  diagonal.  If  not,  print  the  sum  of  all
-the  elements  from  a  certain  column,  c.
+	Author : Jula Marius
+	Date : 29.12.2017
+	Description:  Write a C/C++ application that allocates memory for n integer numbers that will be read from the keyboard.
+				Write a function that determines the square root of each number and stores the result into another dynamically allocated array.
+				Display the initial and computed values. Free the allocated memory.
 */
 
-#define  _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 
-#include  <stdio.h>
-#include  <conio.h>
+#include <stdio.h>
+#include <conio.h>
+#include <malloc.h>
+#include <math.h>
 
-#define  ROWS  25
-#define  COLS  25
+int* storeElems(int *tab, int n);
 
-void  readMatrix(int *, int, int);
-int  sumColumn(int *, int, int);
-void  secondDiag(int *, int, int);
+int main() {
+	int *tab, *tab2, n, i;
 
-void  main(void)
-{
-	int  tab[ROWS][COLS], n, m, col, *pt;
-	pt = &tab[0][0];
-	printf("\nPlease  enter  the  dimensions  of  the  matrix:  ");
-	scanf("%d%d", &n, &m);
+	printf("\n n = ");
+	scanf("%d", &n);
 
-	readMatrix(pt, n, m);
-
-	if (n != m)
+	if (tab = (int*)malloc(n * sizeof(int)))
 	{
-		printf("\nPlease  enter  the  column:  ");
-		scanf("%d", &col);
-		printf("\nThe  sum  of  the  elems  of  the  column  %d  is  %d", col, sumColumn(pt, n, col));
+		printf("\n Enter %d integer numbers: ", n);
+		for (i = 0; i < n; i++)
+		{
+			printf("\nnumber %d: ", i + 1);
+			scanf("%d", tab + i);
+		}
 	}
-	else
-		secondDiag(pt, n, m);
+	else 
+	{
+		printf("\n Unsuccessful allocation.");
+		return NULL;
+	}
+
+	printf("\n The initial values are: ");
+	for (i = 0; i < n; i++)
+	{
+		printf("%d ", *(tab + i));
+	}
+
+	tab2 = storeElems(tab, n);
+	printf("\nThe computed values are: ");
+	for (i = 0; i < n; i++)
+	{
+		printf("%d ", *(tab2 + i));
+	}
+
+	free(tab);
+	free(tab2);
 
 	_getch();
 }
+/* function that stores the result into another dynamically allocated array.*/
+int* storeElems(int *tab, int n) {
+	int i, *tab2;
 
-/*  function  to  read  an  NxM  matrix*/
-void  readMatrix(int  *tab, int  n, int  m)
-{
-	int  i, j, *pt;
-	pt = tab;
-	printf("\nPlease  enter  the  elements  of  the  matrix:\n");
-	for (i = 0; i < n; i++)
-		for (j = 0; j < m; j++)
-		{
-			printf("tab[%d][%d]:  ", i, j);
-			scanf("%d", (pt + i*n + j));
-		}
-}
+	if (tab2 = (int*)malloc(n * sizeof(int)))
+		for (i = 0; i < n; i++)
+			*(tab2 + i) = sqrt((double)*(tab + i));
+	else 
+	{
+		printf("\n Unsuccessful allocation.");
+		return NULL;
+	}
 
-/*  function  to  sum  all  the  elements  from  a  column  C*/
-int  sumColumn(int  *tab, int  n, int  c)
-{
-	int  i, sum, *pt;
-	sum = 0;
-	pt = tab;
-	for (i = 0; i < n; i++)
-		sum += *(pt + i*n + c);
-
-	return  sum;
-}
-
-void  secondDiag(int  *tab, int  n, int  m)
-{
-	int  i, j, *pt;
-	pt = tab;
-	printf("\nThe  elements  from  the  second  diagonal  are:  \n");
-
-		for (j = 0; j < m; j++)
-		{
-			printf("%d  ", *(pt + j * m + (m - j - 1)));
-		}
+	return tab2;
 }
