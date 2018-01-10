@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX 3
 
@@ -27,6 +28,7 @@
 void dispStudData(struct student *, int);
 void readStudData(struct student *);
 int detForeignStuds(struct student *);
+int name(struct student *);
 
 void main()
 {
@@ -35,19 +37,17 @@ void main()
 	int nr, i;
 
 	ps = group;
-	nr = 0;
+	nr = i = 0;
 
 	/* reading until the input is "aaa"(meaning to stop the algorithm) */
-	for (i = 0; i < MAX; i++)
-	{
-		
+	do {
+		printf("\nEnter your personal data: ");
+		printf("\n Student %d:", i + 1);
 		readStudData(ps + i);
-		if ((ps->name) == "aaa")
-			break;
-	}
+		nr += detForeignStuds(ps + i);
+		i++;
+	} while (name(ps + i - 1));
 
-
-	nr = detForeignStuds(ps);
 	printf("\nThere are %d foreign students", nr);
 	_getch();
 }
@@ -58,11 +58,8 @@ int detForeignStuds(struct student *ps)
 	int i, count;
 	count = 0;
 	for (i = 0; i < MAX; i++)
-		if (strcmp(ps->country,"Romania") != 0)
-		{
+		if (_stricmp(ps->country,"Romania") != 0)
 			count++;
-			dispStudData((ps + i), i+1);
-		}
 
 	return count;
 }
@@ -73,6 +70,12 @@ void readStudData(struct student *ps)
 	fflush(stdin); /* user for safety as we are reading arrays of characters */
 		printf("\nPlease enter the name: ");
 		scanf("%s", ps->name);
+		if (_stricmp(ps->name, "aaa") == 0)
+		{
+			printf("Stop.");
+			_getch();
+			return;
+		}
 		printf("\nPlease enter the surname: ");
 		scanf("%s", ps->surname);
 		printf("\nPlease enter the country: ");
@@ -92,4 +95,14 @@ void dispStudData(struct student *ps, int index)
 	printf("\n\t %s", ps->country);
 	printf("\n\t %d", ps->group);
 	printf("\n\t %d", ps->birth_year);
+}
+
+int name(struct student *ps) {
+	int ok;
+	if (_stricmp(ps->name, "AAA"))
+		ok = 1;
+	else
+		ok = 0;
+
+	return ok;
 }
